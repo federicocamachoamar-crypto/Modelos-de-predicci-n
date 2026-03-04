@@ -1,0 +1,33 @@
+# === DATA (NO subir) ===
+data_raw/
+data_processed/
+
+# formatos típicos de data pesada
+*.parquet
+*.rds
+*.feather
+*.qs
+
+# no subir data real por accidente
+*.csv
+*.xlsx
+
+# PERO sí permitir muestras pequeñas
+!data_sample/
+!data_sample/*.csv
+!data_sample/*.xlsx
+
+# === SECRETS ===
+.env
+*.key
+*.pem
+
+# === R / RStudio ===
+.Rhistory
+.RData
+.Rproj.user/
+*.Rproj
+
+# === Outputs ===
+reports/figures/*.png
+reports/figures/*.html
