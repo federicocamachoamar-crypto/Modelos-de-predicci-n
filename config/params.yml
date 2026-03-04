@@ -14,7 +14,7 @@ backtest:
 data:
   # En GitHub solo subimos muestras pequeñas en data_sample/
   source_1_sample: "data_sample/base_ventas_sample.csv"
-  source_2_sample: "data_sample/base_xregs_sample.csv"
+  source_2_sample: "data_sample/base_xregs_sample.xlsx"
 
   # Data real (local) si algún día lo corres fuera de GitHub
   source_1_real: "data_raw/base_ventas.csv"
