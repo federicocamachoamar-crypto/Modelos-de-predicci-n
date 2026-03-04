@@ -1,0 +1,59 @@
+project:
+  language: "R"
+  frequency: "monthly"
+  horizon: 12
+
+backtest:
+  initial_window: 24   # meses
+  step: 1              # mes
+  assess: 12           # meses (horizonte evaluación)
+  metrics_priority:
+    - "MASE"
+    - "R2_OOS"         # R^2 out-of-sample (solo en backtest)
+
+data:
+  # En GitHub solo subimos muestras pequeñas en data_sample/
+  source_1_sample: "data_sample/base_ventas_sample.csv"
+  source_2_sample: "data_sample/base_xregs_sample.csv"
+
+  # Data real (local) si algún día lo corres fuera de GitHub
+  source_1_real: "data_raw/base_ventas.csv"
+  source_2_real: "data_raw/base_xregs.csv"
+
+  output_model_ready: "data_processed/model_ready.csv"
+
+schema:
+  # Base 1
+  date_col_base1: "PERIODO"         # ej: "01/10/2024"
+  date_format_base1: "%d/%m/%Y"
+
+  # Base 2
+  date_col_base2: "fecha"           # ej: "ene-21"
+  date_format_base2: "mon-yy-es"    # parsing custom (ene,feb,...)
+
+  target_candidates:
+    - "VENTA_LITROS"
+    - "VENTA_VALOR"
+  target_default: "VENTA_LITROS"
+
+  dims:
+    - "REGION"
+    - "CANAL"
+    - "FABRICANTE"
+    - "CATEGORIA"
+    - "MARCAS"
+    - "SUBCATEGORIA"
+    - "EMPAQUES"
+    - "TAMANIOS"
+
+  serie_id_sep: " | "
+
+xregs:
+  commercial:
+    - "PRECIO_PROMEDIO"
+    - "DIST_NUM_TIENDAS_HANDLING"
+    - "DIST_POND_TIENDAS_HANDLING"
+  macro:
+    - "Gasto_hogares_raddar"
+    - "Gasto_alimentos"
+    - "Inflacion"
