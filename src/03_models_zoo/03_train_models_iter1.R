@@ -236,7 +236,7 @@ if (length(log_skipped) == 0) {
   lines <- c(lines, log_skipped)
 }
 
-> source("src/03_models_zoo/03_train_models_iter1.R")
+source("src/03_models_zoo/03_train_models_iter1.R")
 Error en writeLines(lines, OUT_LOG): 
   sólo se pueden escribir objetos de tipo character
 
