@@ -237,8 +237,7 @@ if (length(log_skipped) == 0) {
 }
 
 source("src/03_models_zoo/03_train_models_iter1.R")
-Error en writeLines(lines, OUT_LOG): 
-  sólo se pueden escribir objetos de tipo character
+
 
 message("✅ Iteración 1 lista.")
 message(" - Preds: ", OUT_PRED)
