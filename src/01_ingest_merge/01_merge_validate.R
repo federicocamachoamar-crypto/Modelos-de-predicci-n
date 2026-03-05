@@ -95,7 +95,7 @@ build_serie_id <- function(df, dims, sep = " | ") {
   df <- df %>%
     mutate(across(all_of(dims), ~ if_else(is.na(.x) | str_trim(as.character(.x)) == "", "TOTAL", str_trim(as.character(.x)))))
 
-  df$serie_id <- paste(!!!syms(dims), sep = sep)
+  df$serie_id <- do.call(paste, c(df[dims], sep = sep))
   df
 }
 
